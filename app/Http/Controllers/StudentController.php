@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
@@ -24,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -35,7 +36,21 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate the input
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'class' => 'required',
+            'class_roll' => 'required',
+            'detail' => 'required',
+            'detail' => 'required',
+        ]);
+
+        //creat a new product
+        Student::create($request->all());
+
+        //redirect the user and send friendly message
+        return redirect()->route('students.create')->with('success','Student added successfully');
     }
 
     /**

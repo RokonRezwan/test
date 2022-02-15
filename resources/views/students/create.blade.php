@@ -45,35 +45,57 @@
                                 </div>
                             </div>
 
+                           
                             <div class="mb-3 row">
-                                <label for="password" class="col-md-4 col-form-label text-end">
-                                    {{ __('Password') }} :
-                                </label>
+                               <label for="class" class="col-md-4 col-form-label text-end">
+                                    {{ __('Class') }} :
+                               </label>
 
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password">
+                               <div class="col-md-6">
+                                  <input id="class" type="number" class="form-control @error('class') is-invalid @enderror"
+                                      name="class" value="{{ old('class') }}" required autocomplete="class" autofocus>
 
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                  @error('class')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
                                 </div>
-                            </div>
+                             </div>
 
-                            <div class="mb-3 row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-end">
-                                    {{ __('Confirm Password') }} :
-                                </label>
+                             <div class="mb-3 row">
+                              <label for="class_roll" class="col-md-4 col-form-label text-end">
+                                  {{ __('Class Roll') }} :
+                              </label>
 
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password"
-                                        class="form-control @error('password') is-invalid @enderror"
-                                        name="password_confirmation" required autocomplete="new-password">
+                              <div class="col-md-6">
+                                  <input id="class_roll" type="number" class="form-control @error('class_roll') is-invalid @enderror"
+                                      name="class_roll" value="{{ old('class_roll') }}" required autocomplete="class_roll" autofocus>
+
+                                  @error('class_roll')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
                                 </div>
-                            </div>
+                             </div>
+
+                             <div class="mb-3 row">
+                              <label for="details" class="col-md-4 col-form-label text-end">
+                                  {{ __('Details') }} :
+                              </label>
+
+                              <div class="col-md-6">
+                                  <input id="details" type="text" class="form-control @error('details') is-invalid @enderror"
+                                      name="details" value="{{ old('details') }}" required autocomplete="details" autofocus>
+
+                                  @error('details')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+                          </div>
 
                             <div class="mb-3 row">
                                 <div class="col-md-6 offset-md-4">

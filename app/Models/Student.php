@@ -15,6 +15,5 @@ class Student extends Model
         'class',
         'class_roll',
         'details',
-        'password',
     ];
 }

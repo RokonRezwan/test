@@ -25,6 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home/reset', [App\Http\Controllers\HomeController::class, 'reset'])->name('resetPassword');
 
 Route::get('/create', [StudentController::class, 'create'])->name('create');
+Route::any('/creates', [StudentController::class, 'store'])->name('students.store');
 
 Auth::routes();
 

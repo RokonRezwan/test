@@ -25,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $students = Student::latest()->paginate(5);
+        return view('home', compact('students'));
     }
 
     public function reset()
