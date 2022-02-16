@@ -10,12 +10,13 @@
                   </div>
                     
                 <div class="card">
-                    <div class="card-header fw-bold">{{ __('Add New Student') }}</div>
+                    <div class="card-header fw-bold">{{ __('Update Student Information') }}</div>
 
                     
                     <div class="card-body">
-                        <form method="POST" action="{{ route('students.store') }}">
+                        <form method="POST" action="{{ route('students.update',$student->id) }}">
                             @csrf
+                            @method('PUT')
 
                             <div class="mb-3 row">
                                 <label for="name" class="col-md-4 col-form-label text-end">
@@ -24,7 +25,7 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                        name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        name="name" value="{{ $student->name }}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -41,7 +42,7 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        name="email" value="{{ $student->email }}" required autocomplete="email" autofocus>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -59,7 +60,7 @@
 
                                <div class="col-md-6">
                                   <input id="class" type="number" class="form-control @error('class') is-invalid @enderror"
-                                      name="class" value="{{ old('class') }}" required autocomplete="class" autofocus>
+                                      name="class" value="{{ $student->class }}" required autocomplete="class" autofocus>
 
                                   @error('class')
                                       <span class="invalid-feedback" role="alert">
@@ -76,7 +77,7 @@
 
                               <div class="col-md-6">
                                   <input id="class_roll" type="number" class="form-control @error('class_roll') is-invalid @enderror"
-                                      name="class_roll" value="{{ old('class_roll') }}" required autocomplete="class_roll" autofocus>
+                                      name="class_roll" value="{{ $student->class_roll }}" required autocomplete="class_roll" autofocus>
 
                                   @error('class_roll')
                                       <span class="invalid-feedback" role="alert">
@@ -93,7 +94,7 @@
 
                               <div class="col-md-6">
                                   <input id="details" type="text" class="form-control @error('details') is-invalid @enderror"
-                                      name="details" value="{{ old('details') }}" required autocomplete="details" autofocus>
+                                      name="details" value="{{ $student->details }}" required autocomplete="details" autofocus>
 
                                   @error('details')
                                       <span class="invalid-feedback" role="alert">
@@ -106,7 +107,7 @@
                             <div class="mb-3 row">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Add') }}
+                                        {{ __('Update') }}
                                     </button>
                                 </div>
                             </div>

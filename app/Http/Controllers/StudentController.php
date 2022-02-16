@@ -42,15 +42,14 @@ class StudentController extends Controller
             'email' => 'required',
             'class' => 'required',
             'class_roll' => 'required',
-            'detail' => 'required',
-            'detail' => 'required',
+            'details' => 'required',
         ]);
 
         //creat a new product
         Student::create($request->all());
 
         //redirect the user and send friendly message
-        return redirect()->route('students.create')->with('success','Student added successfully');
+        return redirect()->route('home')->with('success','Student added successfully');
     }
 
     /**
@@ -59,9 +58,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
-        //
+        return view('students.show', compact('student'));
     }
 
     /**
@@ -70,9 +69,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //
+        return view('students.edit',compact('student'));
     }
 
     /**
@@ -82,9 +81,22 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        //validate the input
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'class' => 'required',
+            'class_roll' => 'required',
+            'details' => 'required',
+        ]);
+
+        //creat a new product
+        $student->update($request->all());
+
+        //redirect the user and send friendly message
+        return redirect()->route('home')->with('success','Student Updated successfully');
     }
 
     /**
@@ -93,8 +105,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return redirect()->route('home')->with('success','Student deleted successfully');
+
     }
 }
