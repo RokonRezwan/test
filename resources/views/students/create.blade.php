@@ -58,8 +58,12 @@
                                </label>
 
                                <div class="col-md-6">
-                                  <input id="class" type="number" class="form-control @error('class') is-invalid @enderror"
-                                      name="class" value="{{ old('class') }}" required autocomplete="class" autofocus>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Select a class</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
 
                                   @error('class')
                                       <span class="invalid-feedback" role="alert">

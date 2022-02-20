@@ -56,7 +56,7 @@ class ClasseController extends Controller
      */
     public function show(Classe $classe)
     {
-        //
+        return view('classes.show', compact('classe'));
     }
 
     /**
@@ -67,7 +67,7 @@ class ClasseController extends Controller
      */
     public function edit(Classe $classe)
     {
-        //
+        return view('classes.edit',compact('classe'));
     }
 
     /**
@@ -79,7 +79,16 @@ class ClasseController extends Controller
      */
     public function update(Request $request, Classe $classe)
     {
-        //
+        //validate the input
+        $request->validate([
+            'class_name' => 'required',
+        ]);
+
+        //update the class
+        $classe->update($request->all());
+
+        //redirect the user and send friendly message
+        return redirect()->route('classes.index')->with('success','Class Updated successfully');
     }
 
     /**
@@ -90,6 +99,7 @@ class ClasseController extends Controller
      */
     public function destroy(Classe $classe)
     {
-        //
+        $classe->delete();
+        return redirect()->route('classes.index')->with('success','Class deleted successfully');
     }
 }

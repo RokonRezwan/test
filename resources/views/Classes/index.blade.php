@@ -6,11 +6,12 @@
             <div class="col-md-12">
 
                 <div class="p-2 text-end">
+                    <a href="{{ url('/home') }}" class="btn btn-primary">Back</a>
                     <a href="{{ route('classes.create') }}" class="btn btn-primary">Add class</a>
                 </div>
 
                 <div class="card">
-                    <div class="card-header text-center fs-2">{{ __('Dashboard') }}</div>
+                    <div class="card-header text-center fs-2">{{ __('Class Dashboard') }}</div>
                     
                     <div class="card-body">
                             @if (session('status'))
@@ -37,8 +38,6 @@
                                   <td>{{ $classe->class_name }}</td>
                                   <td>
                                     <form action="{{ route('classes.destroy',$classe->id) }}" method="POST">
-                                        <a class="btn btn-info" href="{{ route('classes.show',$classe->id) }}">Show</a>
-                                        <a class="btn btn-primary" href="{{ route('classes.edit',$classe->id) }}">Edit</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
