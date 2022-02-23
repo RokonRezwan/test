@@ -6,7 +6,7 @@
             <div class="col-md-8">
 
                   <div class="p-2 text-end">
-                        <a href="{{ url('/home') }}" class="btn btn-primary">Back</a>
+                        <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
                   </div>
                     
                 <div class="card">
@@ -58,12 +58,12 @@
                                </label>
 
                                <div class="col-md-6">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Select a class</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                                  <select class="form-control" name="class" value="{{ old('class') }}" required autocomplete="class" autofocus >
+                                      <option selected>Select a class</option>
+                                      @foreach ($classes as $classe)                                          
+                                      <option value="{{ $classe->id }}">{{ $classe->class_name }}</option>
+                                      @endforeach
+                                  </select>
 
                                   @error('class')
                                       <span class="invalid-feedback" role="alert">

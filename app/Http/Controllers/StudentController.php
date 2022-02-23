@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Classe;
 
 class StudentController extends Controller
 {
@@ -14,8 +15,14 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::latest()->paginate(5);
-        return view('home', compact('students'));
+        $data['students'] = Student::all();
+        $data['classes'] = Classe::all();
+
+        return view('students.index', $data);
+
+
+        /* $students = Student::latest()->paginate(5);
+        return view('home', compact('students'));  */
     }
 
     /**
@@ -25,7 +32,12 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        $data['students'] = Student::all();
+        $data['classes'] = Classe::all();
+
+        return view('students.create', $data);
+
+        /* return view('students.create'); */
     }
 
     /**

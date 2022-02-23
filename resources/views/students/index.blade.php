@@ -41,7 +41,7 @@
                                   <td>{{ $student->id }}</td>
                                   <td>{{ $student->name }}</td>
                                   <td>{{ $student->email }}</td>
-                                  <td>{{ $student->class}}</td>
+                                  <td>{{ $student->classe->class_name ?? 'None' }}</td>
                                   <td>{{ $student->class_roll }}</td>
                                   <td>{{ $student->details }}</td>
                                   <td>
@@ -51,6 +51,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
+                                        
                                     </form>
                                 </td>
                             </tr>

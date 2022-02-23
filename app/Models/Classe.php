@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Student;
 
 class Classe extends Model
 {
@@ -12,4 +13,11 @@ class Classe extends Model
     protected $fillable = [
         'class_name',
     ];
+
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'class');
+    }
+    
 }

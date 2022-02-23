@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\StudentController;
 use App\Models\Student;
+use App\Models\Classe;
 
 class HomeController extends Controller
 {
@@ -25,8 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $students = Student::latest()->paginate(5);
-        return view('home', compact('students'));
+        $classes = Classe::all();
+        return view('home', compact('classes'));
     }
 
     public function reset()

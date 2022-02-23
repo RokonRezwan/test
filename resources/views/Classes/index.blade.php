@@ -6,7 +6,7 @@
             <div class="col-md-12">
 
                 <div class="p-2 text-end">
-                    <a href="{{ url('/home') }}" class="btn btn-primary">Back</a>
+                    <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
                     <a href="{{ route('classes.create') }}" class="btn btn-primary">Add class</a>
                 </div>
 
@@ -38,6 +38,7 @@
                                   <td>{{ $classe->class_name }}</td>
                                   <td>
                                     <form action="{{ route('classes.destroy',$classe->id) }}" method="POST">
+                                        <a class="btn btn-info" href="{{ route('classes.show',$classe->id) }}">Show</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

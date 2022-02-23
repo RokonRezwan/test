@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Classe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Student;
 
 class ClasseController extends Controller
 {
@@ -54,9 +56,11 @@ class ClasseController extends Controller
      * @param  \App\Models\Classe  $classe
      * @return \Illuminate\Http\Response
      */
-    public function show(Classe $classe)
+    public function show($id)
     {
-        return view('classes.show', compact('classe'));
+        $data['students'] = DB::table('students')->where('class', $id)->get();
+        $data['classes'] = Classe::all();
+        return view('classes.show', $data);
     }
 
     /**
