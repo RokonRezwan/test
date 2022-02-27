@@ -6,7 +6,7 @@
             <div class="col-md-12">
 
                 <div class="p-2 text-end">
-                    <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
+                    <a href="{{ url('/home') }}" class="btn btn-primary">Back</a>
                     <a href="{{ route('classes.create') }}" class="btn btn-primary">Add class</a>
                 </div>
 

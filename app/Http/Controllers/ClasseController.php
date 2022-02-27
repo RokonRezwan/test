@@ -16,7 +16,7 @@ class ClasseController extends Controller
      */
     public function index()
     {
-        $classes = Classe::latest()->paginate(5);
+        $classes = Classe::latest()->paginate(10);
         return view('classes.index', compact('classes'));
     }
 

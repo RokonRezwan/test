@@ -61,7 +61,7 @@ class StudentController extends Controller
         Student::create($request->all());
 
         //redirect the user and send friendly message
-        return redirect()->route('home')->with('success','Student added successfully');
+        return redirect()->route('students.index')->with('success','Student added successfully');
     }
 
     /**
@@ -108,7 +108,7 @@ class StudentController extends Controller
         $student->update($request->all());
 
         //redirect the user and send friendly message
-        return redirect()->route('home')->with('success','Student Updated successfully');
+        return redirect()->route('students.index')->with('success','Student Updated successfully');
     }
 
     /**
@@ -120,7 +120,7 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         $student->delete();
-        return redirect()->route('home')->with('success','Student deleted successfully');
+        return redirect()->route('students.index')->with('success','Student deleted successfully');
 
     }
 }
